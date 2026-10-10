@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --paper: #f4f0e7;
   --paper-deep: #e8e2d4;
   --ink: #2c2c2e;
@@ -8,8 +9,32 @@
   --red: #ee1624;
   --green: #84b736;
   --white: #fffcf7;
+  --header-bg: rgba(255, 252, 247, 0.92);
+  --button-bg: #2c2c2e;
+  --button-fg: #fffcf7;
+  --button-hover: #1b1b1d;
   --header: 5.5rem;
   --space: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #161618;
+    --paper-deep: #222226;
+    --ink: #f3efe6;
+    --muted: #c2bbb0;
+    --line: rgba(243, 239, 230, 0.16);
+    --header-bg: rgba(22, 22, 24, 0.92);
+    --button-bg: #f3efe6;
+    --button-fg: #161618;
+    --button-hover: #ffffff;
+  }
+
+  .contact-panel {
+    background: #2a2a2e;
+    border: 1px solid var(--line);
+  }
 }
 
 * {
@@ -42,8 +67,8 @@ a {
   position: absolute;
   left: 1rem;
   top: -4rem;
-  background: var(--ink);
-  color: var(--white);
+  background: var(--button-bg);
+  color: var(--button-fg);
   padding: 0.5rem 0.8rem;
   z-index: 10;
 }
@@ -62,7 +87,7 @@ a {
   gap: 1rem;
   min-height: var(--header);
   padding: 0.4rem var(--space);
-  background: rgba(255, 252, 247, 0.92);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
@@ -70,6 +95,20 @@ a {
 .brand img {
   width: 5.25rem;
   height: 5.25rem;
+}
+
+.logo-night {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo-day {
+    display: none;
+  }
+
+  .logo-night {
+    display: block;
+  }
 }
 
 .nav {
@@ -91,8 +130,8 @@ a {
 }
 
 .nav-quote {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--button-bg);
+  color: var(--button-fg);
   text-decoration: none;
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
@@ -100,7 +139,7 @@ a {
 
 .nav-quote:hover {
   text-decoration: none;
-  background: #1b1b1d;
+  background: var(--button-hover);
 }
 
 .hero,
@@ -170,8 +209,8 @@ h3 {
 .button {
   display: inline-block;
   margin-top: 0.5rem;
-  background: var(--ink);
-  color: var(--white);
+  background: var(--button-bg);
+  color: var(--button-fg);
   text-decoration: none;
   padding: 0.85rem 1.15rem;
   border-radius: 999px;
@@ -179,7 +218,7 @@ h3 {
 }
 
 .button:hover {
-  background: #1b1b1d;
+  background: var(--button-hover);
 }
 
 .sample {
@@ -203,6 +242,16 @@ h3 {
 
 .swatch-ink {
   background: #303032;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sample-card {
+    background: #2c2c2e;
+  }
+
+  .swatch-ink {
+    background: #f4f0e7;
+  }
 }
 
 .swatch-gold {
@@ -300,8 +349,8 @@ h3 {
 }
 
 .contact-panel {
-  background: var(--ink);
-  color: var(--white);
+  background: #2c2c2e;
+  color: #fffcf7;
   padding: clamp(1.75rem, 4vw, 3rem);
 }
 
@@ -318,7 +367,7 @@ h3 {
   list-style: none;
   margin: 1.75rem 0 0;
   padding: 0;
-  color: var(--white);
+  color: #fffcf7;
 }
 
 .contact-lines li + li {
